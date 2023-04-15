@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Dark Mode",
+  "version": "1.0",
+  "description": "Dark Mode allows you to browse a webapp in dark mode",
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_title": "Dark mode"
+  },
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["/content.js", "/custom_js_script.js"]
+    }
+  ],
+  "permissions": ["tabs", "storage", "activeTab"]
+}
