@@ -61,7 +61,5 @@ if (enabled) {
         textChildNodes.style.color = '#fff';
       });
     });
-
-    console.log('called');
   }, 1500);
 }

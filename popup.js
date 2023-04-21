@@ -3,7 +3,6 @@ var storageKey = 'enabled';
 var myButton = document.getElementById('toggle');
 
 myButton.onclick = () => {
-  console.log('Clicked here');
   enabled = enabled == 'true' ? 'false' : 'true';
   chrome.storage.sync.set({ enabled: enabled });
 
@@ -14,9 +13,7 @@ myButton.onclick = () => {
     chrome.tabs.executeScript(
       tab.id,
       { code: `localStorage.setItem("enabled", ${enabled});` },
-      (data) => {
-        console.log('update cache data:', data);
-      }
+      (data) => {}
     );
   });
 
@@ -28,9 +25,7 @@ myButton.onclick = () => {
       { code: `localStorage.getItem("enabled");` },
       (data) => {
         enabled = data[0];
-        console.log('enabled:', enabled);
         myButton.textContent = enabled == 'true' ? 'Disable' : 'Enable';
-        console.log('button text:', myButton.textContent);
       }
     );
   });
