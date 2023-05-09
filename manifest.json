@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Dark Mode",
+  "name": "another dark mode reader",
   "version": "1.0",
   "description": "Dark Mode allows you to browse a webapp in dark mode",
   "page_action": {
     "default_popup": "popup.html",
-    "default_title": "Dark mode"
+    "default_title": "another dark mode reader"
   },
   "background": {
     "scripts": ["eventPage.js"],
