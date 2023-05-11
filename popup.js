@@ -1,9 +1,9 @@
-var enabled = 'false'; //disabled by default
-var storageKey = 'enabled';
-var myButton = document.getElementById('toggle');
+var enabled = "false"; //disabled by default
+var storageKey = "enabled";
+var myButton = document.getElementById("toggle");
 
 myButton.onclick = () => {
-  enabled = enabled == 'true' ? 'false' : 'true';
+  enabled = enabled == "true" ? "false" : "true";
   chrome.storage.sync.set({ enabled: enabled });
 
   // Update to localStorage
@@ -25,7 +25,7 @@ myButton.onclick = () => {
       { code: `localStorage.getItem("enabled");` },
       (data) => {
         enabled = data[0];
-        myButton.textContent = enabled == 'true' ? 'Disable' : 'Enable';
+        myButton.textContent = enabled == "true" ? "Disable" : "Enable";
       }
     );
   });
@@ -33,13 +33,13 @@ myButton.onclick = () => {
   // Reload
   chrome.tabs.getSelected(null, function (tab) {
     // calling external js file directly instead of on load
-    chrome.tabs.executeScript(tab.id, { file: './custom_js_script.js' });
+    chrome.tabs.executeScript(tab.id, { file: "./custom_js_script.js" });
   });
 
   chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     // read changeInfo data and do something with it (like read the url)
     if (changeInfo.url) {
-      chrome.tabs.executeScript(tab.id, { file: './custom_js_script.js' });
+      chrome.tabs.executeScript(tab.id, { file: "./custom_js_script.js" });
     }
   });
 };

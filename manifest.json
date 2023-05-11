@@ -17,5 +17,5 @@
       "js": ["/content.js", "/custom_js_script.js"]
     }
   ],
-  "permissions": ["tabs", "storage", "activeTab"]
+  "permissions": ["tabs", "<all_urls>", "storage", "activeTab"]
 }

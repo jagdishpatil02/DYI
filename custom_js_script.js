@@ -1,65 +1,21 @@
-console.log('custom_js_script.js called');
-var enabled = window.localStorage.getItem('enabled'); //default
-
-if (enabled) {
+console.log("custom_js_script.js called");
+var enabled = window.localStorage.getItem("enabled"); //default
+(function () {
   setTimeout(() => {
-    let allTextClasses = [
-      {
-        className: 'text-primary',
-      },
-      {
-        className: 'text-light',
-      },
-      {
-        className: 'text-gray',
-      },
-      {
-        className: 'lg:text-base',
-      },
-    ];
+    const allElements = document.getElementsByTagName("*");
 
-    let allBgClasses = [
-      {
-        className: 'bg-white',
-      },
-      {
-        className: 'bg-gray-bg1',
-      },
-      {
-        className: 'bg-gray-gray0',
-      },
-    ];
-    let textWrapperCollec = [];
-    let textWrapperArr = [];
-    allTextClasses.forEach((element) => {
-      textWrapperCollec.push(
-        document.getElementsByClassName(element.className)
-      );
-    });
-    textWrapperCollec.forEach((element) => {
-      textWrapperArr.push(Array.prototype.slice.call(element));
-    });
-
-    let bgWrapperCollec = [];
-    let bgWrapperArr = [];
-    allBgClasses.forEach((element) => {
-      bgWrapperCollec.push(document.getElementsByClassName(element.className));
-    });
-    bgWrapperCollec.forEach((element) => {
-      bgWrapperArr.push(Array.prototype.slice.call(element));
-    });
-
-    bgWrapperArr.forEach((textParentNodes) => {
-      textParentNodes.forEach((textChildNodes) => {
-        textChildNodes.style.backgroundColor = '#242924';
-        textChildNodes.style.color = '#fff';
-      });
-    });
-
-    textWrapperArr.forEach((textParentNodes) => {
-      textParentNodes.forEach((textChildNodes) => {
-        textChildNodes.style.color = '#fff';
-      });
-    });
-  }, 1500);
-}
+    // Loop through each element and replace the background color property
+    for (let i = 0; i < allElements.length; i++) {
+      const styles = window.getComputedStyle(allElements[i]);
+      if (styles.backgroundColor !== "transparent") {
+        allElements[i].style.backgroundColor = "#181a1b"; // Replace with your desired color
+      }
+      if (styles.color) {
+        allElements[i].style.color = "#fff"; // Replace with your desired color
+      }
+      if (styles.borderColor !== "transparent") {
+        allElements[i].style.borderColor = "#373c3e"; // Replace with your desired color
+      }
+    }
+  }, 500);
+})();
