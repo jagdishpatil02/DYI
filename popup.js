@@ -1,7 +1,6 @@
 var enabled = "false"; //disabled by default
 var storageKey = "enabled";
 var myButton = document.getElementById("toggle");
-
 myButton.onclick = () => {
   enabled = enabled == "true" ? "false" : "true";
   chrome.storage.sync.set({ enabled: enabled });
