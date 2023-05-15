@@ -1,19 +1,17 @@
-console.log("custom_js_script.js called");
-
 var enabled = window.localStorage.getItem("enabled"); //default
-console.log("enabled", enabled);
 
 if (enabled == "true") {
   // Check if the user prefers a light or dark color scheme
   if (
     document.body.hasAttribute("data-theme") ||
-    document.documentElement.hasAttribute("data-theme")
+    document.documentElement.hasAttribute("data-theme") ||
+    document.documentElement.hasAttribute("data-dark-theme")
   ) {
     document.documentElement.style.setProperty("--color-scheme", "dark");
     document.documentElement.style.setProperty("color-scheme", "dark");
+    document.documentElement.setAttribute("data-color-mode", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
     document.body.setAttribute("data-theme", "dark");
-    console.log("tailwind");
   } else {
     const newBgColor = "#181a1b"; // Replace with your new background color
     const newTextcolor = "#fff";
@@ -21,22 +19,21 @@ if (enabled == "true") {
     changeColor(newBgColor, newTextcolor);
     const svgColor = "#fff";
     changeSVGIcons(svgColor);
-    console.log("no tailwind");
   }
 } else {
   if (
     document.body.hasAttribute("data-theme") ||
-    document.documentElement.hasAttribute("data-theme")
+    document.documentElement.hasAttribute("data-theme") ||
+    document.documentElement.hasAttribute("data-dark-theme")
   ) {
     document.documentElement.style.setProperty("--color-scheme", "light");
     document.documentElement.style.setProperty("color-scheme", "light");
+    document.documentElement.setAttribute("data-color-mode", "light");
     document.documentElement.setAttribute("data-theme", "light");
     document.body.setAttribute("data-theme", "light");
-    console.log("no tailwind");
   } else {
-    console.log("tailwind");
-    const newBgColor = "#181a1b"; // Replace with your new background color
-    const newTextcolor = "#fff";
+    const newBgColor = "#fff"; // Replace with your new background color
+    const newTextcolor = "#000";
     // Loop through all stylesheets on the page
     changeColor(newBgColor, newTextcolor);
     const svgColor = "#fff";
