@@ -13,9 +13,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://peerlist.io/*"],
       "js": ["/content.js", "/custom_js_script.js"]
     }
   ],
-  "permissions": ["tabs", "<all_urls>", "storage", "activeTab"]
+  "permissions": ["tabs", "https://peerlist.io/*", "storage", "activeTab"]
+
 }

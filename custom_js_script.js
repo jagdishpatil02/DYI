@@ -1,5 +1,4 @@
 var enabled = window.localStorage.getItem("enabled"); //default
-
 if (enabled == "true") {
   const rootElement = document.documentElement;
   const bodyElement = document.body;
@@ -15,9 +14,10 @@ if (enabled == "true") {
     rootElement.setAttribute("data-theme", "dark");
     bodyElement.setAttribute("data-theme", "dark");
   } else {
-    const newBgColor = "#181a1b"; // Replace with your new background color
-    const newTextcolor = "#fff";
     // Loop through all stylesheets on the page
+    const newBgColor = window.localStorage.getItem("bgcolor");
+    console.log("newBgColor", newBgColor);
+    const newTextcolor = window.localStorage.geItem("txtcolor");
     changeColor(newBgColor, newTextcolor);
     const svgColor = "#fff";
     changeSVGIcons(svgColor);
@@ -36,8 +36,8 @@ if (enabled == "true") {
     rootElement.setAttribute("data-theme", "light");
     bodyElement.setAttribute("data-theme", "light");
   } else {
-    const newBgColor = "#fff"; // Replace with your new background color
-    const newTextcolor = "#000";
+    const newBgColor = window.localStorage.getItem("bgcolor");
+    const newTextcolor = window.localStorage.getItem("txtcolor");
     // Loop through all stylesheets on the page
     changeColor(newBgColor, newTextcolor);
     const svgColor = "#fff";
