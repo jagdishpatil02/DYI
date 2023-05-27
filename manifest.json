@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "another dark mode reader",
+  "name": "dyi (design your internet)",
   "version": "1.0",
-  "description": "another dark mode reader allows you to browse a webapp in dark mode",
+  "description": "dyi lets you design design the internet according to your preferences",
   "page_action": {
     "default_popup": "popup.html",
-    "default_title": "another dark mode reader"
+    "default_title": "dyi"
   },
   "background": {
     "scripts": ["eventPage.js"],
